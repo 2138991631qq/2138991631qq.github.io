@@ -8,15 +8,41 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SpringBoot和SpringCloud实现网上购物商城 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="本文是通过使用SpringBoot和SpringCloud完成一个网上商城系统的开发使用了IDEA的开发工具，同时也使用到了一个php_study。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot和SpringCloud实现网上购物商城">
-<meta property="og:url" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E/index.html">
+<meta property="og:url" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文是通过使用SpringBoot和SpringCloud完成一个网上商城系统的开发使用了IDEA的开发工具，同时也使用到了一个php_study。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/1.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/2.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/3.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/4.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/5.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/6.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/7.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/8.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/9.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/10.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/11.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/12.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/13.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/14.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/15.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/16.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/17.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/18.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/19.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/20.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/21.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/22.png">
+<meta property="og:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/23.png">
 <meta property="article:published_time" content="2022-06-25T07:40:03.000Z">
-<meta property="article:modified_time" content="2022-06-25T07:40:03.598Z">
+<meta property="article:modified_time" content="2022-06-25T23:33:33.767Z">
 <meta property="article:author" content="DeYi Kong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -191,7 +217,7 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-SpringBoot和SpringCloud实现网上购物商城" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-SpringBoot和SpringCloud实现网上购物商城单机版" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -206,7 +232,7 @@ var _hmt = _hmt || [];
 
 
         
-        <a href="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E/" class="archive-article-date">
+        <a href="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/" class="archive-article-date">
   	<time datetime="2022-06-25T07:40:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-25</time>
 </a>
         
@@ -214,7 +240,34 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>本文是通过使用SpringBoot和SpringCloud完成一个网上商城系统的开发<br>使用了IDEA的开发工具，同时也使用到了一个php_study。</p>
+<span id="more"></span> 
+<h3 id="一、先给大家展示运行起来的效果"><a href="#一、先给大家展示运行起来的效果" class="headerlink" title="一、先给大家展示运行起来的效果"></a>一、先给大家展示运行起来的效果</h3><h4 id="1-首页"><a href="#1-首页" class="headerlink" title="1.首页"></a>1.首页</h4><p>运行跑起来整个集群后，并且运行了php_study的阿帕奇，输入网址来到了我们的首页：</p>
+<p><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/1.png"><br>(:不好意思哈，因为在整理电脑文件时，首页商品图片的路径文件夹里有几个图片捣鼓丢啦，不影响咱的系统的正常调试运行哈，大家可放心学习下载(:</p>
+<h4 id="2-账户注册"><a href="#2-账户注册" class="headerlink" title="2.账户注册"></a>2.账户注册</h4><p>可以点击首页上方的注册来注册账户</p>
+<h4 id="3-用户登录"><a href="#3-用户登录" class="headerlink" title="3.用户登录"></a>3.用户登录</h4><p><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/2.png"></p>
+<h4 id="4-首页商品索引"><a href="#4-首页商品索引" class="headerlink" title="4.首页商品索引"></a>4.首页商品索引</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/3.png"></p>
+<h4 id="5-点击商品进入详情页"><a href="#5-点击商品进入详情页" class="headerlink" title="5.点击商品进入详情页"></a>5.点击商品进入详情页</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/4.png"></p>
+<h4 id="6-先修改左下角的商品数量，点击确定"><a href="#6-先修改左下角的商品数量，点击确定" class="headerlink" title="6.先修改左下角的商品数量，点击确定"></a>6.先修改左下角的商品数量，点击确定</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/5.png"></p>
+<h4 id="7-点击加入购物车饭，而且多次首页购物加购后"><a href="#7-点击加入购物车饭，而且多次首页购物加购后" class="headerlink" title="7.点击加入购物车饭，而且多次首页购物加购后"></a>7.点击加入购物车饭，而且多次首页购物加购后</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/6.png"></p>
+<h4 id="8-购物车界面点击确定购买"><a href="#8-购物车界面点击确定购买" class="headerlink" title="8.购物车界面点击确定购买"></a>8.购物车界面点击确定购买</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/7.png"><br> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/8.png"></p>
+<h4 id="9-管理员身份登录，admin、admin"><a href="#9-管理员身份登录，admin、admin" class="headerlink" title="9.管理员身份登录，admin、admin"></a>9.管理员身份登录，admin、admin</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/9.png"></p>
+<h4 id="10-管理员的首页界面"><a href="#10-管理员的首页界面" class="headerlink" title="10.管理员的首页界面"></a>10.管理员的首页界面</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/10.png"></p>
+<h4 id="11-管理员的用户管理，可以增删查用户"><a href="#11-管理员的用户管理，可以增删查用户" class="headerlink" title="11.管理员的用户管理，可以增删查用户"></a>11.管理员的用户管理，可以增删查用户</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/11.png"></p>
+<h4 id="12-商品的增删改查界面-点击新增商品"><a href="#12-商品的增删改查界面-点击新增商品" class="headerlink" title="12.商品的增删改查界面,点击新增商品"></a>12.商品的增删改查界面,点击新增商品</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/12.png"></p>
+<h4 id="13-点击新增商品后的，第一步商品图片上传"><a href="#13-点击新增商品后的，第一步商品图片上传" class="headerlink" title="13.点击新增商品后的，第一步商品图片上传"></a>13.点击新增商品后的，第一步商品图片上传</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/13.png"></p>
+<h4 id="14-选择图片后，点击上传后"><a href="#14-选择图片后，点击上传后" class="headerlink" title="14.选择图片后，点击上传后"></a>14.选择图片后，点击上传后</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/14.png"></p>
+<h4 id="15-点击下一步后，并输入新增商品的信息"><a href="#15-点击下一步后，并输入新增商品的信息" class="headerlink" title="15.点击下一步后，并输入新增商品的信息"></a>15.点击下一步后，并输入新增商品的信息</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/15.png"></p>
+<h4 id="16-新增成功后的商品管理界面"><a href="#16-新增成功后的商品管理界面" class="headerlink" title="16.新增成功后的商品管理界面"></a>16.新增成功后的商品管理界面</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/16.png"></p>
+<h4 id="17-新增成功后的商城首页"><a href="#17-新增成功后的商城首页" class="headerlink" title="17.新增成功后的商城首页"></a>17.新增成功后的商城首页</h4><p> <img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/17.png"></p>
+<h3 id="二、给大家看一下项目的结构"><a href="#二、给大家看一下项目的结构" class="headerlink" title="二、给大家看一下项目的结构"></a>二、给大家看一下项目的结构</h3><h4 id="1-整体结构"><a href="#1-整体结构" class="headerlink" title="1.整体结构"></a>1.整体结构</h4><p>本项目使用springcloud分布式集群开发，多个集群注册到server服务器上，可以服务拆分粒度更细，有利于资源重复利用，有利于提高开发效率，可以更精准的制定优化服务方案，提高系统的可维护性，微服务架构采用去中心化思想，服务之间采用Restful等轻量级通讯，比ESB更轻量，适于互联网时代，产品迭代周期更短。<br>一个eureka-server作为服务端，user、goods、admin三个客户端注册到server，同时相互注册，本项目还使用了网关gateway，使用hytrix防止雪崩效应。<br><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/18.png"></p>
+<h4 id="2-eureka-server"><a href="#2-eureka-server" class="headerlink" title="2.eureka-server"></a>2.eureka-server</h4><p>就只有一个yml文件和一个启动器。<br><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/19.png"></p>
+<h4 id="3-common-module作为一个对象各个封装对象类的公共实体类"><a href="#3-common-module作为一个对象各个封装对象类的公共实体类" class="headerlink" title="3.common-module作为一个对象各个封装对象类的公共实体类"></a>3.common-module作为一个对象各个封装对象类的公共实体类</h4><p>只包含这几个对象的成员属性，get\set，有参无参构造方法<br><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/20.png"></p>
+<h4 id="4-然后每一个集群中的xml文件中都会引用一下该公共实体类"><a href="#4-然后每一个集群中的xml文件中都会引用一下该公共实体类" class="headerlink" title="4.然后每一个集群中的xml文件中都会引用一下该公共实体类"></a>4.然后每一个集群中的xml文件中都会引用一下该公共实体类</h4><p><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/21.png"></p>
+<h4 id="5-仅以goods作为参照看一下这个模块的结构-，先看consumer中的"><a href="#5-仅以goods作为参照看一下这个模块的结构-，先看consumer中的" class="headerlink" title="5.仅以goods作为参照看一下这个模块的结构 ，先看consumer中的"></a>5.仅以goods作为参照看一下这个模块的结构 ，先看consumer中的</h4><p>consumer都是作为前端响应实现前端数据等功能的物件，用来处理前端各个界面跳转等功能，包含controller控制器，filter过滤器一般处理检验session的用户是否登录后执行的权限，hytrix处理service的回调函数预防雪崩效应，service用来给controller提供接口方法，service同时通过feignClient来动态连接restfull连接provider中的controller与数据库沟通拿值的。这个图中的template中的css、js等都是可以删除的，只需要保留html网页就行，因为我们使用php_study的阿帕奇绑定前端样式。<br><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/22.png"></p>
+<h4 id="6-provider文件"><a href="#6-provider文件" class="headerlink" title="6.provider文件"></a>6.provider文件</h4><p>provider文件主要是作为服务的提供者，也就是通过连接数据库的操作，处理消费者的各种请求，说白了也就是起到了连接数据库拿数据CRUD操作的文件功能，它是离数据库最近的文件<br><img src="/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/23.png"></p>
+<p>限于篇幅，大家先在我的GitHub上下载该项目自己玩吧，我过几天再回来更新。<br>代码链接:</p>
+
       
 
       
@@ -336,7 +389,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://2138991631qq.github.io/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://2138991631qq.github.io/2022/06/25/SpringBoot%E5%92%8CSpringCloud%E5%AE%9E%E7%8E%B0%E7%BD%91%E4%B8%8A%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E5%8D%95%E6%9C%BA%E7%89%88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -379,7 +432,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E7%BB%99%E5%A4%A7%E5%AE%B6%E5%B1%95%E7%A4%BA%E8%BF%90%E8%A1%8C%E8%B5%B7%E6%9D%A5%E7%9A%84%E6%95%88%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">一、先给大家展示运行起来的效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%A6%96%E9%A1%B5"><span class="toc-number">1.1.</span> <span class="toc-text">1.首页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%B4%A6%E6%88%B7%E6%B3%A8%E5%86%8C"><span class="toc-number">1.2.</span> <span class="toc-text">2.账户注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95"><span class="toc-number">1.3.</span> <span class="toc-text">3.用户登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%A6%96%E9%A1%B5%E5%95%86%E5%93%81%E7%B4%A2%E5%BC%95"><span class="toc-number">1.4.</span> <span class="toc-text">4.首页商品索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%82%B9%E5%87%BB%E5%95%86%E5%93%81%E8%BF%9B%E5%85%A5%E8%AF%A6%E6%83%85%E9%A1%B5"><span class="toc-number">1.5.</span> <span class="toc-text">5.点击商品进入详情页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%85%88%E4%BF%AE%E6%94%B9%E5%B7%A6%E4%B8%8B%E8%A7%92%E7%9A%84%E5%95%86%E5%93%81%E6%95%B0%E9%87%8F%EF%BC%8C%E7%82%B9%E5%87%BB%E7%A1%AE%E5%AE%9A"><span class="toc-number">1.6.</span> <span class="toc-text">6.先修改左下角的商品数量，点击确定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%82%B9%E5%87%BB%E5%8A%A0%E5%85%A5%E8%B4%AD%E7%89%A9%E8%BD%A6%E9%A5%AD%EF%BC%8C%E8%80%8C%E4%B8%94%E5%A4%9A%E6%AC%A1%E9%A6%96%E9%A1%B5%E8%B4%AD%E7%89%A9%E5%8A%A0%E8%B4%AD%E5%90%8E"><span class="toc-number">1.7.</span> <span class="toc-text">7.点击加入购物车饭，而且多次首页购物加购后</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E8%B4%AD%E7%89%A9%E8%BD%A6%E7%95%8C%E9%9D%A2%E7%82%B9%E5%87%BB%E7%A1%AE%E5%AE%9A%E8%B4%AD%E4%B9%B0"><span class="toc-number">1.8.</span> <span class="toc-text">8.购物车界面点击确定购买</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%E7%99%BB%E5%BD%95%EF%BC%8Cadmin%E3%80%81admin"><span class="toc-number">1.9.</span> <span class="toc-text">9.管理员身份登录，admin、admin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E7%AE%A1%E7%90%86%E5%91%98%E7%9A%84%E9%A6%96%E9%A1%B5%E7%95%8C%E9%9D%A2"><span class="toc-number">1.10.</span> <span class="toc-text">10.管理员的首页界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E7%AE%A1%E7%90%86%E5%91%98%E7%9A%84%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%A2%9E%E5%88%A0%E6%9F%A5%E7%94%A8%E6%88%B7"><span class="toc-number">1.11.</span> <span class="toc-text">11.管理员的用户管理，可以增删查用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-%E5%95%86%E5%93%81%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E7%95%8C%E9%9D%A2-%E7%82%B9%E5%87%BB%E6%96%B0%E5%A2%9E%E5%95%86%E5%93%81"><span class="toc-number">1.12.</span> <span class="toc-text">12.商品的增删改查界面,点击新增商品</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-%E7%82%B9%E5%87%BB%E6%96%B0%E5%A2%9E%E5%95%86%E5%93%81%E5%90%8E%E7%9A%84%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%95%86%E5%93%81%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0"><span class="toc-number">1.13.</span> <span class="toc-text">13.点击新增商品后的，第一步商品图片上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-%E9%80%89%E6%8B%A9%E5%9B%BE%E7%89%87%E5%90%8E%EF%BC%8C%E7%82%B9%E5%87%BB%E4%B8%8A%E4%BC%A0%E5%90%8E"><span class="toc-number">1.14.</span> <span class="toc-text">14.选择图片后，点击上传后</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15-%E7%82%B9%E5%87%BB%E4%B8%8B%E4%B8%80%E6%AD%A5%E5%90%8E%EF%BC%8C%E5%B9%B6%E8%BE%93%E5%85%A5%E6%96%B0%E5%A2%9E%E5%95%86%E5%93%81%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">1.15.</span> <span class="toc-text">15.点击下一步后，并输入新增商品的信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16-%E6%96%B0%E5%A2%9E%E6%88%90%E5%8A%9F%E5%90%8E%E7%9A%84%E5%95%86%E5%93%81%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="toc-number">1.16.</span> <span class="toc-text">16.新增成功后的商品管理界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#17-%E6%96%B0%E5%A2%9E%E6%88%90%E5%8A%9F%E5%90%8E%E7%9A%84%E5%95%86%E5%9F%8E%E9%A6%96%E9%A1%B5"><span class="toc-number">1.17.</span> <span class="toc-text">17.新增成功后的商城首页</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%9C%8B%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">二、给大家看一下项目的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">1.整体结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-eureka-server"><span class="toc-number">2.2.</span> <span class="toc-text">2.eureka-server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-common-module%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%90%84%E4%B8%AA%E5%B0%81%E8%A3%85%E5%AF%B9%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%85%AC%E5%85%B1%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text">3.common-module作为一个对象各个封装对象类的公共实体类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%84%B6%E5%90%8E%E6%AF%8F%E4%B8%80%E4%B8%AA%E9%9B%86%E7%BE%A4%E4%B8%AD%E7%9A%84xml%E6%96%87%E4%BB%B6%E4%B8%AD%E9%83%BD%E4%BC%9A%E5%BC%95%E7%94%A8%E4%B8%80%E4%B8%8B%E8%AF%A5%E5%85%AC%E5%85%B1%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="toc-number">2.4.</span> <span class="toc-text">4.然后每一个集群中的xml文件中都会引用一下该公共实体类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E4%BB%85%E4%BB%A5goods%E4%BD%9C%E4%B8%BA%E5%8F%82%E7%85%A7%E7%9C%8B%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BB%93%E6%9E%84-%EF%BC%8C%E5%85%88%E7%9C%8Bconsumer%E4%B8%AD%E7%9A%84"><span class="toc-number">2.5.</span> <span class="toc-text">5.仅以goods作为参照看一下这个模块的结构 ，先看consumer中的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-provider%E6%96%87%E4%BB%B6"><span class="toc-number">2.6.</span> <span class="toc-text">6.provider文件</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
