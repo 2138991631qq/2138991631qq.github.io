@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>RabbitMQ高级特性-消息的可靠性传递 | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录这阶段我们学习rabbitmq的高级特性阶段的第一讲，消息的可靠性传递先看一下我们需要学习的内容： 生产者到中间件——可靠性投递中间件到消费端——ConsumerACK,可靠性消费端限流——指定消费端处理消息的速率TTL过期时间TTL+死信队列：实现延迟队列管理：权限、角色 1消息的可靠性1.1消息的可靠性投递，生产者到中间件 1234567891011* 确认模式：* 步骤：*  1.开启确">
+  <meta name="description" content="目录这阶段我们学习rabbitmq的高级特性阶段的第一讲，消息的可靠性传递先看一下我们需要学习的内容：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RabbitMQ高级特性-消息的可靠性传递">
 <meta property="og:url" content="http://example.com/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="目录这阶段我们学习rabbitmq的高级特性阶段的第一讲，消息的可靠性传递先看一下我们需要学习的内容： 生产者到中间件——可靠性投递中间件到消费端——ConsumerACK,可靠性消费端限流——指定消费端处理消息的速率TTL过期时间TTL+死信队列：实现延迟队列管理：权限、角色 1消息的可靠性1.1消息的可靠性投递，生产者到中间件 1234567891011* 确认模式：* 步骤：*  1.开启确">
+<meta property="og:description" content="目录这阶段我们学习rabbitmq的高级特性阶段的第一讲，消息的可靠性传递先看一下我们需要学习的内容：">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/1.png">
 <meta property="og:image" content="http://example.com/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/2.png">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://example.com/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/5.png">
 <meta property="og:image" content="http://example.com/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/6.png">
 <meta property="article:published_time" content="2022-07-01T02:22:56.000Z">
-<meta property="article:modified_time" content="2022-07-01T09:51:35.039Z">
+<meta property="article:modified_time" content="2022-07-01T09:53:13.065Z">
 <meta property="article:author" content="DeYi Kong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/1.png">
@@ -232,6 +232,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>这阶段我们学习rabbitmq的高级特性阶段的第一讲，消息的可靠性传递<br>先看一下我们需要学习的内容：</p>
+<span id="more"></span>
 <p><img src="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/1.png"><br>生产者到中间件——可靠性投递<br>中间件到消费端——ConsumerACK,可靠性<br>消费端限流——指定消费端处理消息的速率<br>TTL过期时间<br>TTL+死信队列：实现延迟队列<br>管理：权限、角色</p>
 <h3 id="1消息的可靠性"><a href="#1消息的可靠性" class="headerlink" title="1消息的可靠性"></a>1消息的可靠性</h3><h4 id="1-1消息的可靠性投递，生产者到中间件"><a href="#1-1消息的可靠性投递，生产者到中间件" class="headerlink" title="1.1消息的可靠性投递，生产者到中间件"></a>1.1消息的可靠性投递，生产者到中间件</h4><p><img src="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/2.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">* 确认模式：</span><br><span class="line">* 步骤：</span><br><span class="line">*  1.开启确认模式：ConnectFactory中开启 publisher-confirms=&quot;true&quot;</span><br><span class="line">*  2.在rabbitTemplate中定义一个confirmCallBack回调函数</span><br><span class="line">* 回退模式：当消息发给Exchange后，Exchange路由到queue失败时才会执行returnCallBack</span><br><span class="line">* 步骤：</span><br><span class="line">*  1.开启回退模式publisher-returns=&quot;true&quot;</span><br><span class="line">*  2.设置ReturnCallBack</span><br><span class="line">*  3.设置Exchange处理消息的模式</span><br><span class="line">*   1.如果消息没有路由到queue，则丢弃消息(默认)</span><br><span class="line">*   2.如果消息没有路由到queue，返回给消息发送方，ReturnCallBack</span><br></pre></td></tr></table></figure>
@@ -663,11 +664,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">springcloud</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
