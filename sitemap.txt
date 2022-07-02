@@ -12,10 +12,10 @@ http://example.com/2022/06/24/MarkDown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/
 http://example.com/2022/06/24/hexo%E6%B5%8B%E8%AF%95%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/
 http://example.com/404.html
 http://example.com/
+http://example.com/tags/Swing-GUI-DAO-JDBC/
 http://example.com/tags/%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/
 http://example.com/tags/MarkDown/
-http://example.com/tags/Swing-GUI-DAO-JDBC/
-http://example.com/tags/mysql/
 http://example.com/tags/springcloud/
 http://example.com/tags/%E9%9A%8F%E7%AC%94/
 http://example.com/tags/html-css/
+http://example.com/tags/mysql/
