@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/7 | 孔德仪的个人博客</title>
+  <title>RabbitMQ高级特性-死信队列 | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="孔德仪的个人博客">
-<meta property="og:url" content="http://example.com/archives/2022/07/index.html">
+  <meta name="description" content="死信队列如果我们的消息TTL啦、Nack啦、或超max-length了就会成为死信，成为死信后，就会被丢弃掉，我们通过搭建一个死信交换机和死信队列，就能吧这些面临丢弃的死信再利用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RabbitMQ高级特性-死信队列">
+<meta property="og:url" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
+<meta property="og:description" content="死信队列如果我们的消息TTL啦、Nack啦、或超max-length了就会成为死信，成为死信后，就会被丢弃掉，我们通过搭建一个死信交换机和死信队列，就能吧这些面临丢弃的死信再利用。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/1.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/2.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/3.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/4.png">
+<meta property="article:published_time" content="2022-07-02T07:01:00.000Z">
+<meta property="article:modified_time" content="2022-07-02T07:44:16.718Z">
 <meta property="article:author" content="DeYi Kong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/1.png">
   
     <link rel="alternative" href="/atom.xml" title="孔德仪的个人博客" type="application/atom+xml">
   
@@ -203,104 +212,333 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-RabbitMQ高级特性-死信队列" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      RabbitMQ高级特性-死信队列
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/" class="archive-article-date">
+
+
+
+
+        
+        <a href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/" class="archive-article-date">
   	<time datetime="2022-07-02T07:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/">RabbitMQ高级特性-死信队列</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="死信队列"><a href="#死信队列" class="headerlink" title="死信队列"></a>死信队列</h3><p>如果我们的消息TTL啦、Nack啦、或超max-length了就会成为死信，成为死信后，就会被丢弃掉，我们通过搭建一个死信交换机和死信队列，就能吧这些面临丢弃的死信再利用。</p>
+<span id="more"></span>
+<p><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/1.png"><br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/2.png"><br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/3.png"></p>
+<h4 id="我们需要在生产者里定义一个正常的交换机和序列和一个死信交换机和死信序列"><a href="#我们需要在生产者里定义一个正常的交换机和序列和一个死信交换机和死信序列" class="headerlink" title="我们需要在生产者里定义一个正常的交换机和序列和一个死信交换机和死信序列"></a>我们需要在生产者里定义一个正常的交换机和序列和一个死信交换机和死信序列</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">死信队列：</span><br><span class="line">    1.声明正常的队列(test_queue_dlx)和交换机(test_exchange_dlx)</span><br><span class="line">    2.声明死信队列(queue_dlx)和死信交换机(exchange_dlx)</span><br><span class="line">    3.正常队列来绑定死信交换机</span><br><span class="line">        设置两个参数：</span><br><span class="line">            * x-dead-letter-exchange:死信交换机名称</span><br><span class="line">            * x-dead-letter-routing-key:发送给死信交换机的routing-key</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">1.声明正常的队列(test_queue_dlx)和交换机(test_exchange_dlx)</span><br><span class="line">--&gt;</span><br><span class="line">    &lt;rabbit:queue name=&quot;test_queue_dlx&quot; id=&quot;test_queue_dlx&quot;&gt;</span><br><span class="line">        &lt;rabbit:queue-arguments&gt;</span><br><span class="line">&lt;!--            3.1 x-dead-letter-exchange:死信交换机名称 --&gt;</span><br><span class="line">            &lt;entry key=&quot;x-dead-letter-exchange&quot; value=&quot;exchange_dlx&quot; /&gt;</span><br><span class="line">&lt;!--            3.2 x-dead-letter-routing-key:发送给死信交换机的routing-key--&gt;</span><br><span class="line">            &lt;entry key=&quot;x-dead-letter-routing-key&quot; value=&quot;dlx.hehe&quot; /&gt;</span><br><span class="line">&lt;!--            4.1设置队列的过期时间--&gt;</span><br><span class="line">            &lt;entry key=&quot;x-message-ttl&quot; value=&quot;10000&quot; value-type=&quot;java.lang.Integer&quot;&gt;&lt;/entry&gt;</span><br><span class="line">            &lt;!--            4.2设置队列的长度限制 max-length--&gt;</span><br><span class="line">            &lt;entry key=&quot;x-max-length&quot; value=&quot;10&quot; value-type=&quot;java.lang.Integer&quot;&gt;&lt;/entry&gt;</span><br><span class="line">        &lt;/rabbit:queue-arguments&gt;</span><br><span class="line">    &lt;/rabbit:queue&gt;</span><br><span class="line">    &lt;rabbit:topic-exchange name=&quot;test_exchange_dlx&quot;&gt;</span><br><span class="line">        &lt;rabbit:bindings&gt;</span><br><span class="line">            &lt;rabbit:binding pattern=&quot;test.dlx.#&quot; queue=&quot;test_queue_dlx&quot;&gt;&lt;/rabbit:binding&gt;</span><br><span class="line">        &lt;/rabbit:bindings&gt;</span><br><span class="line">    &lt;/rabbit:topic-exchange&gt;</span><br><span class="line">    </span><br><span class="line">&lt;!--    2.声明死信队列(queue_dlx)和死信交换机(exchange_dlx)--&gt;</span><br><span class="line">    &lt;rabbit:queue name=&quot;queue_dlx&quot; id=&quot;queue_dlx&quot;&gt;</span><br><span class="line">    &lt;/rabbit:queue&gt;</span><br><span class="line">    &lt;rabbit:topic-exchange name=&quot;exchange_dlx&quot;&gt;</span><br><span class="line">        &lt;rabbit:bindings&gt;</span><br><span class="line">            &lt;rabbit:binding pattern=&quot;dlx.#&quot; queue=&quot;queue_dlx&quot;&gt;&lt;/rabbit:binding&gt;</span><br><span class="line">        &lt;/rabbit:bindings&gt;</span><br><span class="line">    &lt;/rabbit:topic-exchange&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="接下来我们在test中测试"><a href="#接下来我们在test中测试" class="headerlink" title="接下来我们在test中测试"></a>接下来我们在test中测试</h4><ul>
+<li>发送测试死信消息：</li>
+<li>1.过期时间</li>
+<li>2.长度限制</li>
+<li>3.消息绝收<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void testDlx()&#123;</span><br><span class="line">        //1.测试过期时死信信息</span><br><span class="line">        // rabbitTemplate.convertAndSend(&quot;test_exchange_dlx&quot;,&quot;test.dlx.haha&quot;,&quot;我是一条消息，我会死吗？&quot;);</span><br><span class="line">        //2.测试长度限制后，消息死信</span><br><span class="line">        /*for (int i = 0; i &lt;20 ; i++) &#123;</span><br><span class="line">            rabbitTemplate.convertAndSend(&quot;test_exchange_dlx&quot;,&quot;test.dlx.haha&quot;,&quot;我是一条消息，我会死吗？&quot;);</span><br><span class="line">        &#125;*/</span><br><span class="line">        //3.测试消息拒收</span><br><span class="line">        rabbitTemplate.convertAndSend(&quot;test_exchange_dlx&quot;,&quot;test.dlx.haha&quot;,&quot;我是一条消息，我会死吗？&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li>1.过期时间<br>由于我们定义了消息的过期时间，所以1.测试过期时死信信息-会进入死信队列。</li>
+<li>2.长度限制<br>由于我们定义了queue的x-max-length为10 ，所以2中运行后，会直接有10条数据进入死信队列，10s后继续10条消息进入死信队列。</li>
+<li>3.消息绝收<br>我们需要在消费者端定义一个新的监听类。</li>
+</ul>
+<h5 id="消息拒收要手动拒收，BaiscNack-并且还要将重回队列设置为false"><a href="#消息拒收要手动拒收，BaiscNack-并且还要将重回队列设置为false" class="headerlink" title="消息拒收要手动拒收，BaiscNack,并且还要将重回队列设置为false"></a>消息拒收要手动拒收，BaiscNack,并且还要将重回队列设置为false</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class DlxListener implements ChannelAwareMessageListener &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(Message message, Channel channel) throws Exception &#123;</span><br><span class="line">        long deliveryTag = message.getMessageProperties().getDeliveryTag();</span><br><span class="line">        try&#123;</span><br><span class="line">            //1.接收转换消息</span><br><span class="line">            System.out.println(new String(message.getBody()));</span><br><span class="line">            //2.处理业务逻辑</span><br><span class="line">            System.out.println(&quot;处理业务逻辑.....&quot;);</span><br><span class="line">            int i = 3/0;//错误，模拟手动签收执行不了，手动签收失败失败。</span><br><span class="line">            //3.手动签收</span><br><span class="line">            /**</span><br><span class="line">             * long deliveryTag, boolean multiple</span><br><span class="line">             * */</span><br><span class="line">           channel.basicAck(deliveryTag,true);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            //e.printStackTrace();</span><br><span class="line">            /**</span><br><span class="line">             * long deliveryTag, boolean multiple, boolean requeue</span><br><span class="line">             * 第三个参数requeue为重回队列，设置为true则消息重新回到queue，broke会重新发送消息给消费端</span><br><span class="line">             * */</span><br><span class="line">            System.out.println(&quot;出现异常，拒绝接受&quot;);</span><br><span class="line">            //4.拒绝签收，不重回队列了</span><br><span class="line">            channel.basicNack(deliveryTag,true,false);</span><br><span class="line">            //channel.basicReject(deliveryTag,true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行监听程序后，会发现生产端运行后发送到正常队列的消息由于出现业务逻辑错误被nack发送到死信队列了<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/4.png"></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare">
+          <strong>本文作者：</strong>
+          
+            DeYi Kong
+          
+          <br>
+          <strong>本文链接：</strong>
+          <a rel="license" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/">/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/</a>
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+          进行许可。转载请注明出处！
+          
+            <br>
+            <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+          
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/w.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://2138991631qq.github.io/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/" class="archive-article-date">
-  	<time datetime="2022-07-02T02:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RabbitMQ高级特性-消费端限流和生产端的TTL</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/">RabbitMQ高级特性-消费端限流和生产端的TTL</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97"><span class="toc-number">1.</span> <span class="toc-text">死信队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E5%9C%A8%E7%94%9F%E4%BA%A7%E8%80%85%E9%87%8C%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%B8%B8%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%92%8C%E5%BA%8F%E5%88%97%E5%92%8C%E4%B8%80%E4%B8%AA%E6%AD%BB%E4%BF%A1%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%92%8C%E6%AD%BB%E4%BF%A1%E5%BA%8F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">我们需要在生产者里定义一个正常的交换机和序列和一个死信交换机和死信序列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E6%88%91%E4%BB%AC%E5%9C%A8test%E4%B8%AD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.</span> <span class="toc-text">接下来我们在test中测试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E6%8B%92%E6%94%B6%E8%A6%81%E6%89%8B%E5%8A%A8%E6%8B%92%E6%94%B6%EF%BC%8CBaiscNack-%E5%B9%B6%E4%B8%94%E8%BF%98%E8%A6%81%E5%B0%86%E9%87%8D%E5%9B%9E%E9%98%9F%E5%88%97%E8%AE%BE%E7%BD%AE%E4%B8%BAfalse"><span class="toc-number">1.2.1.</span> <span class="toc-text">消息拒收要手动拒收，BaiscNack,并且还要将重回队列设置为false</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/" class="archive-article-date">
-  	<time datetime="2022-07-01T02:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/">RabbitMQ高级特性-消息的可靠性传递</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
+        
+    </div>
+</aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  
+      <section id="comments" class="comments">
+        <style>
+          .comments{margin:30px;padding:10px;background:#fff}
+          @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+        </style>
+        <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+    </section>
+  
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
           </div>
         </div>
       </div>
@@ -328,8 +566,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
