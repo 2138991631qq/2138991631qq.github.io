@@ -6,39 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>基于DAO的JDBC的药店管理系统 | 孔德仪的个人博客</title>
+  <title>RabbitMQ高级特性-消费端限流和生产端的TTL | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、本文介绍本文是我之前基于Java语言，使用eclipse的开发工具，使用了swing的插件来制作GUI图形用户界面，简单使用DAO层数据访问对象层的JDBC连接数据库做的一个药店管理系统，希望能给大家带来一些帮助。">
+  <meta name="description" content="1.先看一下消费端限流mq的优势有一个削峰填谷，当请求量突增时，这时发送到中间件mq的数据有点点多，而我们的消费端不能将如此多的数据量进行短时间内处理，我们根据消费端的承载量，进行对每秒钟从mq中拉取的信息数据量做一个限制。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于DAO的JDBC的药店管理系统">
-<meta property="og:url" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="RabbitMQ高级特性-消费端限流和生产端的TTL">
+<meta property="og:url" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="一、本文介绍本文是我之前基于Java语言，使用eclipse的开发工具，使用了swing的插件来制作GUI图形用户界面，简单使用DAO层数据访问对象层的JDBC连接数据库做的一个药店管理系统，希望能给大家带来一些帮助。">
+<meta property="og:description" content="1.先看一下消费端限流mq的优势有一个削峰填谷，当请求量突增时，这时发送到中间件mq的数据有点点多，而我们的消费端不能将如此多的数据量进行短时间内处理，我们根据消费端的承载量，进行对每秒钟从mq中拉取的信息数据量做一个限制。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/0.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/1.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/2.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/10.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/12.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/13.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/3.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/4.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/5.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/6.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/7.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/14.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/15.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/16.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/18.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/17.png">
-<meta property="og:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/19.png">
-<meta property="article:published_time" content="2022-06-27T02:08:16.000Z">
-<meta property="article:modified_time" content="2022-06-27T03:17:47.744Z">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/1.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/2.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/3.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/4.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/5.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/6.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/7.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/8.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/9.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/10.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/11.png">
+<meta property="og:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/12.png">
+<meta property="article:published_time" content="2022-07-02T02:41:18.000Z">
+<meta property="article:modified_time" content="2022-07-02T03:26:08.312Z">
 <meta property="article:author" content="DeYi Kong">
-<meta property="article:tag" content="Swing_GUI_DAO_JDBC">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/0.png">
+<meta name="twitter:image" content="http://example.com/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/1.png">
   
     <link rel="alternative" href="/atom.xml" title="孔德仪的个人博客" type="application/atom+xml">
   
@@ -221,14 +214,14 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-GUI和DAO和JDBC实现药店管理系统" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-RabbitMQ高级特性-消费端限流和生产端的TTL" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      基于DAO的JDBC的药店管理系统
+      RabbitMQ高级特性-消费端限流和生产端的TTL
     </h1>
   
 
@@ -236,27 +229,52 @@ var _hmt = _hmt || [];
 
 
         
-        <a href="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2022-06-27T02:08:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
+        <a href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/" class="archive-article-date">
+  	<time datetime="2022-07-02T02:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、本文介绍"><a href="#一、本文介绍" class="headerlink" title="一、本文介绍"></a>一、本文介绍</h3><p>本文是我之前基于Java语言，使用eclipse的开发工具，使用了swing的插件来制作GUI图形用户界面，简单使用DAO层数据访问对象层的JDBC连接数据库做的一个药店管理系统，希望能给大家带来一些帮助。</p>
+        <h3 id="1-先看一下消费端限流"><a href="#1-先看一下消费端限流" class="headerlink" title="1.先看一下消费端限流"></a>1.先看一下消费端限流</h3><p>mq的优势有一个削峰填谷，当请求量突增时，这时发送到中间件mq的数据有点点多，而我们的消费端不能将如此多的数据量进行短时间内处理，我们根据消费端的承载量，进行对每秒钟从mq中拉取的信息数据量做一个限制。</p>
 <span id="more"></span>
-<h3 id="二、作品效果展示"><a href="#二、作品效果展示" class="headerlink" title="二、作品效果展示"></a>二、作品效果展示</h3><h4 id="1-loginFrame登录操作"><a href="#1-loginFrame登录操作" class="headerlink" title="1.loginFrame登录操作"></a>1.loginFrame登录操作</h4><p>首先我们在eclipse中打开我们的项目，运行loginFrame.<br>大家看一下这个login界面，也是通过jdbc连接数据的匹配操作实现的<br>记住密码操作是另外定义了一个方法，同时加了一个txt文件保存这两个数据<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/0.png"></p>
-<h4 id="2-登录成功进入主界面mainFrame"><a href="#2-登录成功进入主界面mainFrame" class="headerlink" title="2.登录成功进入主界面mainFrame"></a>2.登录成功进入主界面mainFrame</h4><p>点击登录，登陆成功后进入到我们的图形用户界面的主界面：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/1.png"><br>大家看到我们一共整出了这四个frame页面。</p>
-<h4 id="3-点击上方按钮界面的药店管理界面"><a href="#3-点击上方按钮界面的药店管理界面" class="headerlink" title="3.点击上方按钮界面的药店管理界面"></a>3.点击上方按钮界面的药店管理界面</h4><p>进入到以下界面，大家可以看到，是可以进行模糊查询，根据属性查询，新增、修改、删除、更新操作的。<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/2.png"><br>1.新增：<br>当我们点击新增药品可以新增药品：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/10.png"><br>更新表格后展示出来：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/11.png"><br>2.修改<br>选中该一行后，点击修改后，进行修改界面：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/12.png"><br>3.模糊查询：<br>文本框输入后，默认根据药品名键盘事件的模糊查询：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/13.png"></p>
-<h4 id="4-点击上方按钮界面的销售管理界面"><a href="#4-点击上方按钮界面的销售管理界面" class="headerlink" title="4.点击上方按钮界面的销售管理界面"></a>4.点击上方按钮界面的销售管理界面</h4><p>进入到销售管理界面：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/3.png"><br>功能很类似药品管理系统就不多说啦。</p>
-<h4 id="4-点击上方按钮界面的下载数据界面"><a href="#4-点击上方按钮界面的下载数据界面" class="headerlink" title="4.点击上方按钮界面的下载数据界面"></a>4.点击上方按钮界面的下载数据界面</h4><p><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/4.png"><br>1.下载药品信息：<br>点击下载药品信息后：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/5.png"><br>下载成功：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/6.png"><br>我们看一下这个下载的文件：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/7.png"><br>2.下载销售信息：<br>同药品，不再展示啦。</p>
-<h4 id="4-点击上方按钮界面的下载数据界面-1"><a href="#4-点击上方按钮界面的下载数据界面-1" class="headerlink" title="4.点击上方按钮界面的下载数据界面"></a>4.点击上方按钮界面的下载数据界面</h4><p>当我们点击退出系统：<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/14.png"><br>就退出啦！</p>
-<h3 id="三、代码简单展示一下："><a href="#三、代码简单展示一下：" class="headerlink" title="三、代码简单展示一下："></a>三、代码简单展示一下：</h3><h4 id="1-先看一下我们的结构："><a href="#1-先看一下我们的结构：" class="headerlink" title="1.先看一下我们的结构："></a>1.先看一下我们的结构：</h4><p><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/15.png"><br>使用eclipse，三个包，一个jdbc的jar包，一个登陆记住密码的txt。<br>一个对象封装的包，一个提供方法的包，一个展示的frame界面的包</p>
-<h4 id="2-dao层"><a href="#2-dao层" class="headerlink" title="2.dao层"></a>2.dao层</h4><p><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/16.png"><br>工具类，提供数据库初始化、连接、断开关闭资源的方法<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/18.png"><br>接口和实现类。</p>
-<h4 id="3-Frame包"><a href="#3-Frame包" class="headerlink" title="3.Frame包"></a>3.Frame包</h4><p>进行swing的design设计GUI的图形用户界面，并通过事件监听来使用按钮绑定方法。<br><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/17.png"></p>
-<h4 id="4-login记住密码的txt文件，小小展示一下："><a href="#4-login记住密码的txt文件，小小展示一下：" class="headerlink" title="4.login记住密码的txt文件，小小展示一下："></a>4.login记住密码的txt文件，小小展示一下：</h4><p><img src="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/19.png"></p>
-<h3 id="四、源码链接，欢迎大家下载"><a href="#四、源码链接，欢迎大家下载" class="headerlink" title="四、源码链接，欢迎大家下载"></a>四、源码链接，欢迎大家下载</h3><p><a target="_blank" rel="noopener" href="https://github.com/2138991631qq/PharmacySystem">https://github.com/2138991631qq/PharmacySystem</a></p>
+<p><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/1.png"></p>
+<ul>
+<li>Consumer的限流机制</li>
+<li>1.确保签收ACK机制为手动确认的</li>
+<li>2.listener-container配置属性prefetch &#x3D; 1，</li>
+<li>prefetch &#x3D;1消费端一次只从mq中拉取的消息数量，知道手动确认消费完毕后，消费完毕后才会拉取下一条消息</li>
+</ul>
+<p>这一部分的内容有些简单好做，第一步：在xml配置中修改ack为手动，然后定义prefetch&#x3D;””即每秒钟拉取的消息量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;AckListener&quot; class=&quot;com.itheima.rabbitmq.listener.AckListener&quot;&gt;&lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;QosListener&quot; class=&quot;com.itheima.rabbitmq.listener.QosListener&quot;&gt;&lt;/bean&gt;</span><br><span class="line">    &lt;!--    定义监听器容器--&gt;</span><br><span class="line">    &lt;rabbit:listener-container connection-factory=&quot;connectionFactory&quot; acknowledge=&quot;manual&quot; prefetch=&quot;1&quot; &gt;</span><br><span class="line">&lt;!--        &lt;rabbit:listener ref=&quot;AckListener&quot; queue-names=&quot;test_queue_confirm&quot; &gt;&lt;/rabbit:listener&gt;--&gt;</span><br><span class="line">        &lt;rabbit:listener ref=&quot;QosListener&quot; queue-names=&quot;test_queue_confirm&quot; &gt;&lt;/rabbit:listener&gt;</span><br><span class="line">    &lt;/rabbit:listener-container&gt;</span><br></pre></td></tr></table></figure>
+<p>定义我们的监听类：<br>加了一个sleep便于看出效果，然后我们使用ack手动签收的方式接收数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class QosListener implements ChannelAwareMessageListener &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(Message message, Channel channel) throws Exception &#123;</span><br><span class="line">        Thread.sleep(1000);</span><br><span class="line">        //1.获取消息</span><br><span class="line">        System.out.println(new String(message.getBody()));</span><br><span class="line">        //2.处理业务逻辑</span><br><span class="line">        //3.签收</span><br><span class="line">        channel.basicAck(message.getMessageProperties().getDeliveryTag(),true);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行消费端test进行监听。<br>在生产端我们使用for循环向讲话及序列中发送10条数据<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/2.png"></p>
+<h3 id="2-先看一下生产端的TTL"><a href="#2-先看一下生产端的TTL" class="headerlink" title="2.先看一下生产端的TTL"></a>2.先看一下生产端的TTL</h3><p><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/3.png"></p>
+<h4 id="2-1我们先看一下控制台设置实现。"><a href="#2-1我们先看一下控制台设置实现。" class="headerlink" title="2.1我们先看一下控制台设置实现。"></a>2.1我们先看一下控制台设置实现。</h4><p>先创建一个序列，按照图示步骤进行增加一个序列参数x-message-ttl，将参数值定位10秒<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/4.png"><br>创建一个交换机<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/5.png"><br>点击交换机<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/6.png"><br>绑定队列号：<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/7.png"><br>已绑定：<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/8.png"><br>我们在这个交换机这里，进行发送一条消息，ttl.message<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/9.png"><br>点到queue端，看到来了一条消息<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/10.png"><br>该数据过10秒后自动删除了：<br><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/11.png"></p>
+<h4 id="2-2我们使用代码的形式来实现一下："><a href="#2-2我们使用代码的形式来实现一下：" class="headerlink" title="2.2我们使用代码的形式来实现一下："></a>2.2我们使用代码的形式来实现一下：</h4><p>1.在xml配置中增加一个queue，并且如下设置其参数queue-arguments<br>entry key&#x3D;”x-message-ttl” value&#x3D;”10000” value-type&#x3D;”java.lang.Integer”指定时间10s,一定要声明类型value-type&#x3D;”java.lang.Integer”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;rabbit:queue name=&quot;test_queue_ttl&quot; id=&quot;test_queue_ttl&quot;&gt;</span><br><span class="line">        &lt;rabbit:queue-arguments&gt;</span><br><span class="line">&lt;!--            x-message-ttl指队列的过期时间--&gt;</span><br><span class="line">            &lt;entry key=&quot;x-message-ttl&quot; value=&quot;10000&quot; value-type=&quot;java.lang.Integer&quot;&gt;&lt;/entry&gt;</span><br><span class="line">        &lt;/rabbit:queue-arguments&gt;</span><br><span class="line">    &lt;/rabbit:queue&gt;</span><br><span class="line"></span><br><span class="line">    &lt;rabbit:topic-exchange name=&quot;test_exchange_ttl&quot;&gt;</span><br><span class="line">        &lt;rabbit:bindings&gt;</span><br><span class="line">            &lt;rabbit:binding pattern=&quot;ttl.#&quot; queue=&quot;test_queue_ttl&quot;&gt;&lt;/rabbit:binding&gt;</span><br><span class="line">        &lt;/rabbit:bindings&gt;</span><br><span class="line">    &lt;/rabbit:topic-exchange&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>TTL:过期时间：</p>
+</li>
+<li><p>1.队列统一过期</p>
+</li>
+<li><p>2.消息的单独过期</p>
+</li>
+<li><p>如果设置了消息的过期时间，也设置了队列的过期时间，它以时间短的为准</p>
+</li>
+<li><p>队列过期后，会将队列的所有全部消息移除</p>
+</li>
+<li><p>消息过期后，只有消息在队列顶端(即将被消费)，才回去判断其是否过期，如果过期会移除掉<br>如下默认加载配置中的队列统一过期时间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void testTtl()&#123;</span><br><span class="line">    //队列统一过期</span><br><span class="line">    for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">        rabbitTemplate.convertAndSend(&quot;test_exchange_ttl&quot;,&quot;ttl.hehe&quot;,&quot;message ttl ......&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>消息单独过期：加一个消息后处理的对象MessagePostProcessor，定义其String类型的过期时间，将对象加入到send参数里。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//消息的后处理对象，可以设置一些消息的参数信息</span><br><span class="line">    MessagePostProcessor messagePostProcessor = new MessagePostProcessor() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public Message postProcessMessage(Message message) throws AmqpException &#123;</span><br><span class="line">            //1.设置message</span><br><span class="line">            message.getMessageProperties().setExpiration(&quot;5000&quot;);//设置字符串类型的消息过期时间</span><br><span class="line">            //2.返回该消息</span><br><span class="line">            return message;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">//消息单独过期</span><br><span class="line">rabbitTemplate.convertAndSend(&quot;test_exchange_ttl&quot;, &quot;ttl.hehe&quot;, &quot;message ttl....&quot;,messagePostProcessor);</span><br></pre></td></tr></table></figure></li>
+<li><p>消息过期后，只有消息在队列顶端(即将被消费)，才回去判断其是否过期，如果过期会移除掉<br>我们验证一下,我们使用for循环类发送一组消息，当第i&#x3D;5消息时，我梦设置5秒过期，其他消息正常发送，我们会发现在没有消费这些数据时，5秒后，mq中队列中数据量仍然为10。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">            if (i==5) &#123;</span><br><span class="line">                //消息单独过期</span><br><span class="line">                rabbitTemplate.convertAndSend(&quot;test_exchange_ttl&quot;, &quot;ttl.hehe&quot;, &quot;message ttl....&quot;, messagePostProcessor);</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                //不过期消息</span><br><span class="line">                rabbitTemplate.convertAndSend(&quot;test_exchange_ttl&quot;, &quot;ttl.hehe&quot;, &quot;message ttl....&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/12.png"></p>
+</li>
+</ul>
 
       
 
@@ -295,7 +313,7 @@ var _hmt = _hmt || [];
           
           <br>
           <strong>本文链接：</strong>
-          <a rel="license" href="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</a>
+          <a rel="license" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/">/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/</a>
           <br>
           <strong>版权声明：</strong>
           本作品采用
@@ -346,17 +364,6 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Swing_GUI_DAO_JDBC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -407,7 +414,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://2138991631qq.github.io/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://2138991631qq.github.io/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -421,18 +428,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2022/06/27/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          RabbitMQ学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/06/26/html%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E5%AE%A0%E7%89%A9%E5%95%86%E5%BA%97%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html和css实现宠物商店前端模板搭建</div>
+    <a href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RabbitMQ高级特性-消息的可靠性传递</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -459,7 +457,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、本文介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BD%9C%E5%93%81%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">2.</span> <span class="toc-text">二、作品效果展示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-loginFrame%E7%99%BB%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">1.loginFrame登录操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F%E8%BF%9B%E5%85%A5%E4%B8%BB%E7%95%8C%E9%9D%A2mainFrame"><span class="toc-number">2.2.</span> <span class="toc-text">2.登录成功进入主界面mainFrame</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%82%B9%E5%87%BB%E4%B8%8A%E6%96%B9%E6%8C%89%E9%92%AE%E7%95%8C%E9%9D%A2%E7%9A%84%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">3.点击上方按钮界面的药店管理界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%82%B9%E5%87%BB%E4%B8%8A%E6%96%B9%E6%8C%89%E9%92%AE%E7%95%8C%E9%9D%A2%E7%9A%84%E9%94%80%E5%94%AE%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="toc-number">2.4.</span> <span class="toc-text">4.点击上方按钮界面的销售管理界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%82%B9%E5%87%BB%E4%B8%8A%E6%96%B9%E6%8C%89%E9%92%AE%E7%95%8C%E9%9D%A2%E7%9A%84%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E7%95%8C%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">4.点击上方按钮界面的下载数据界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E7%82%B9%E5%87%BB%E4%B8%8A%E6%96%B9%E6%8C%89%E9%92%AE%E7%95%8C%E9%9D%A2%E7%9A%84%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E7%95%8C%E9%9D%A2-1"><span class="toc-number">2.6.</span> <span class="toc-text">4.点击上方按钮界面的下载数据界面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BB%A3%E7%A0%81%E7%AE%80%E5%8D%95%E5%B1%95%E7%A4%BA%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">三、代码简单展示一下：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%85%88%E7%9C%8B%E4%B8%80%E4%B8%8B%E6%88%91%E4%BB%AC%E7%9A%84%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">1.先看一下我们的结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-dao%E5%B1%82"><span class="toc-number">3.2.</span> <span class="toc-text">2.dao层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Frame%E5%8C%85"><span class="toc-number">3.3.</span> <span class="toc-text">3.Frame包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-login%E8%AE%B0%E4%BD%8F%E5%AF%86%E7%A0%81%E7%9A%84txt%E6%96%87%E4%BB%B6%EF%BC%8C%E5%B0%8F%E5%B0%8F%E5%B1%95%E7%A4%BA%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">4.login记住密码的txt文件，小小展示一下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%BA%90%E7%A0%81%E9%93%BE%E6%8E%A5%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%A4%A7%E5%AE%B6%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.</span> <span class="toc-text">四、源码链接，欢迎大家下载</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E7%9C%8B%E4%B8%80%E4%B8%8B%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">1.先看一下消费端限流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%88%E7%9C%8B%E4%B8%80%E4%B8%8B%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL"><span class="toc-number">2.</span> <span class="toc-text">2.先看一下生产端的TTL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E6%88%91%E4%BB%AC%E5%85%88%E7%9C%8B%E4%B8%80%E4%B8%8B%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AE%BE%E7%BD%AE%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">2.1我们先看一下控制台设置实现。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%9D%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">2.2我们使用代码的形式来实现一下：</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
