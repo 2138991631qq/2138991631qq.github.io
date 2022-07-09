@@ -85,7 +85,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 23
+			总文章数 24
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -203,6 +203,179 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-RabbitMQ应用问题-消息可靠性和幂等性保障" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/03/RabbitMQ%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7%E5%92%8C%E5%B9%82%E7%AD%89%E6%80%A7%E4%BF%9D%E9%9A%9C/">RabbitMQ应用问题-消息可靠性和幂等性保障</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/03/RabbitMQ%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7%E5%92%8C%E5%B9%82%E7%AD%89%E6%80%A7%E4%BF%9D%E9%9A%9C/" class="archive-article-date">
+  	<time datetime="2022-07-03T03:58:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="补偿机制和乐观锁"><a href="#补偿机制和乐观锁" class="headerlink" title="补偿机制和乐观锁"></a>补偿机制和乐观锁</h4><p>这一篇我们简单看一下rabbitmq的应用问题之消息的可靠性保障和消息的幂等性保障。<br>消息再传输过程中，尤其是大数据量的消息传输，其中难免容易发生消息的丢失啦等问题，我们就可以使用一个消息补偿机制进行尽可能保障消息的可靠性也就是尽可能避免消息的丢失情况。<br>然后我们在使用补偿机制时，如果消息没有给consumer收到会补偿继续发一条消息，这时consumer可能就会收到两条一样的消息，这在金融领域比如是订单支付可能就重复给你扣钱两次了，所以我们可以使用乐观锁的机制来使消息的幂等性得到一些保障。</p>
+        
+          <a class="article-more-a" href="/2022/07/03/RabbitMQ%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7%E5%92%8C%E5%B9%82%E7%AD%89%E6%80%A7%E4%BF%9D%E9%9A%9C/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rabbitmq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/03/RabbitMQ%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7%E5%92%8C%E5%B9%82%E7%AD%89%E6%80%A7%E4%BF%9D%E9%9A%9C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
   
     <article id="post-RabbitMQ高级特性-日志监控与消息追踪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1678,180 +1851,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/06/27/GUI%E5%92%8CDAO%E5%92%8CJDBC%E5%AE%9E%E7%8E%B0%E8%8D%AF%E5%BA%97%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-html和css实现宠物商店前端模板搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/26/html%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E5%AE%A0%E7%89%A9%E5%95%86%E5%BA%97%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E6%90%AD%E5%BB%BA/">html和css实现宠物商店前端模板搭建</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/06/26/html%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E5%AE%A0%E7%89%A9%E5%95%86%E5%BA%97%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2022-06-26T08:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、本文介绍"><a href="#一、本文介绍" class="headerlink" title="一、本文介绍"></a>一、本文介绍</h3><p>本文是我之前使用html和css来完成的宠物商店的前端网页模板的搭建</p>
-<h3 id="二、作品效果展示"><a href="#二、作品效果展示" class="headerlink" title="二、作品效果展示"></a>二、作品效果展示</h3><h4 id="1-首先F12运行我们的项目文件，来到了我们的首页："><a href="#1-首先F12运行我们的项目文件，来到了我们的首页：" class="headerlink" title="1.首先F12运行我们的项目文件，来到了我们的首页："></a>1.首先F12运行我们的项目文件，来到了我们的首页：</h4>
-        
-          <a class="article-more-a" href="/2022/06/26/html%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E5%AE%A0%E7%89%A9%E5%95%86%E5%BA%97%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E6%90%AD%E5%BB%BA/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">作品</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/26/html%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E5%AE%A0%E7%89%A9%E5%95%86%E5%BA%97%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E6%90%AD%E5%BB%BA/">展开全文 >></a>
         </p>
       
 
