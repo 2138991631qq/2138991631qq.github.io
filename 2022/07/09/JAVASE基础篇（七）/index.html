@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>JAVASE基础篇（七） | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaSE系列，将进一步稳固我们Java入门的JavaSE的基础，作为Java学习路线的第一个环节，我们还是要注重一些基础的扎实一些。">
+  <meta name="description" content="Collection集合set与list通用方法 、 迭代器遍历集合 、 增强for循环foreach 、 泛型数据类型及通配符参数 、 ArrayList数组实现斗地主纸牌案例">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVASE基础篇（七）">
 <meta property="og:url" content="http://example.com/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="JavaSE系列，将进一步稳固我们Java入门的JavaSE的基础，作为Java学习路线的第一个环节，我们还是要注重一些基础的扎实一些。">
+<meta property="og:description" content="Collection集合set与list通用方法 、 迭代器遍历集合 、 增强for循环foreach 、 泛型数据类型及通配符参数 、 ArrayList数组实现斗地主纸牌案例">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/1.png">
 <meta property="og:image" content="http://example.com/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/2.png">
@@ -64,7 +64,7 @@
 <meta property="og:image" content="http://example.com/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/47.png">
 <meta property="og:image" content="http://example.com/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/48.png">
 <meta property="article:published_time" content="2022-07-09T02:41:11.000Z">
-<meta property="article:modified_time" content="2022-07-09T04:32:51.459Z">
+<meta property="article:modified_time" content="2022-07-10T05:32:18.523Z">
 <meta property="article:author" content="DeYi Kong">
 <meta property="article:tag" content="JavaSE">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 25
+			总文章数 26
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -284,7 +284,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaSE系列，将进一步稳固我们Java入门的JavaSE的基础，作为Java学习路线的第一个环节，我们还是要注重一些基础的扎实一些。</p>
+        <p>Collection集合set与list通用方法 、 迭代器遍历集合 、 增强for循环foreach 、 泛型数据类型及通配符参数 、 ArrayList数组实现斗地主纸牌案例</p>
 <span id="more"></span>
 <h5 id="Collection集合："><a href="#Collection集合：" class="headerlink" title="Collection集合："></a>Collection集合：</h5><p><img src="/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/1.png"></p>
 <h5 id="所有集合共性通用的方法："><a href="#所有集合共性通用的方法：" class="headerlink" title="所有集合共性通用的方法："></a>所有集合共性通用的方法：</h5><p><img src="/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/2.png"><br><img src="/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/3.png"><br><img src="/2022/07/09/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%83%EF%BC%89/4.png"></p>
@@ -730,11 +730,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color5">安装笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">安装笔记</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
