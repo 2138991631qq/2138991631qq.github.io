@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SSM框架基础篇（十九） | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mybatis核心配置深入之typeHandlers标签-自定义类型转换器-开发步骤-date案例 、 mybatis核心配置文件深入之Plugins标签-举例分页助手pageHelper-开发步骤-相关API">
+  <meta name="description" content="Mybatis核心配置深入之typeHandlers标签-自定义类型转换器-开发步骤-date案例 、 mybatis核心配置文件深入之Plugins标签-分页助手pageHelper-开发步骤-相关API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSM框架基础篇（十九）">
 <meta property="og:url" content="http://example.com/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="Mybatis核心配置深入之typeHandlers标签-自定义类型转换器-开发步骤-date案例 、 mybatis核心配置文件深入之Plugins标签-举例分页助手pageHelper-开发步骤-相关API">
+<meta property="og:description" content="Mybatis核心配置深入之typeHandlers标签-自定义类型转换器-开发步骤-date案例 、 mybatis核心配置文件深入之Plugins标签-分页助手pageHelper-开发步骤-相关API">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/1.png">
 <meta property="og:image" content="http://example.com/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/2.png">
@@ -57,7 +57,7 @@
 <meta property="og:image" content="http://example.com/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/40.png">
 <meta property="og:image" content="http://example.com/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/41.png">
 <meta property="article:published_time" content="2022-08-21T06:11:50.000Z">
-<meta property="article:modified_time" content="2022-08-21T06:24:36.193Z">
+<meta property="article:modified_time" content="2022-08-21T06:36:43.475Z">
 <meta property="article:author" content="DeYi Kong">
 <meta property="article:tag" content="SSM框架">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 83
+			总文章数 84
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -276,7 +276,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Mybatis核心配置深入之typeHandlers标签-自定义类型转换器-开发步骤-date案例 、 mybatis核心配置文件深入之Plugins标签-举例分页助手pageHelper-开发步骤-相关API</p>
+        <p>Mybatis核心配置深入之typeHandlers标签-自定义类型转换器-开发步骤-date案例 、 mybatis核心配置文件深入之Plugins标签-分页助手pageHelper-开发步骤-相关API</p>
 <span id="more"></span>
 <h5 id="Mybatis核心配置深入：typeHandlers："><a href="#Mybatis核心配置深入：typeHandlers：" class="headerlink" title="Mybatis核心配置深入：typeHandlers："></a>Mybatis核心配置深入：typeHandlers：</h5><p><img src="/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/1.png"><br><img src="/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/2.png"><br><img src="/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/3.png"><br><img src="/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/4.png"></p>
 <h5 id="查询的结果集和对象之间的转换"><a href="#查询的结果集和对象之间的转换" class="headerlink" title="查询的结果集和对象之间的转换."></a>查询的结果集和对象之间的转换.</h5><p>mybatis提供了很多的转换器，如果mybatis中转换器不满足要求或没有，我们就可以自定义类型转换器：<br><img src="/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/5.png"></p>
@@ -470,6 +470,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/08/21/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SSM框架基础篇（二十）
+        
+      </div>
+    </a>
   
   
     <a href="/2022/08/20/SSM%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
@@ -718,11 +727,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">作品</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color3">作品</a>
               </li>
              
               <li class="article-tag-list-item">
