@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SpringBoot基础篇（五） | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="yml文件书写格式-数据-对象-层级-数组-对象数组 、 yml文件数据的读取-controller中@Value加SpEL表达式 、 yml文件中SpEL表达式引用数据 、 yml文件在controller注入Environment整体封装yml数据 、 yml局部数据针对性的封装Java类中 、">
+  <meta name="description" content="yml文件书写格式-数据-对象-层级-数组-对象数组 、 yml文件数据的读取-controller中@Value加SpEL表达式 、 yml文件中SpEL表达式引用数据 、 yml文件在controller注入Environment整体封装yml数据 、 yml局部数据针对性的封装Java类中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot基础篇（五）">
 <meta property="og:url" content="http://example.com/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="yml文件书写格式-数据-对象-层级-数组-对象数组 、 yml文件数据的读取-controller中@Value加SpEL表达式 、 yml文件中SpEL表达式引用数据 、 yml文件在controller注入Environment整体封装yml数据 、 yml局部数据针对性的封装Java类中 、">
+<meta property="og:description" content="yml文件书写格式-数据-对象-层级-数组-对象数组 、 yml文件数据的读取-controller中@Value加SpEL表达式 、 yml文件中SpEL表达式引用数据 、 yml文件在controller注入Environment整体封装yml数据 、 yml局部数据针对性的封装Java类中">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/1.png">
 <meta property="og:image" content="http://example.com/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/2.png">
@@ -64,7 +64,7 @@
 <meta property="og:image" content="http://example.com/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/48.png">
 <meta property="og:image" content="http://example.com/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/49.png">
 <meta property="article:published_time" content="2022-08-26T04:00:18.000Z">
-<meta property="article:modified_time" content="2022-08-26T05:03:14.942Z">
+<meta property="article:modified_time" content="2022-08-27T08:36:57.606Z">
 <meta property="article:author" content="DeYi Kong">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -283,7 +283,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>yml文件书写格式-数据-对象-层级-数组-对象数组 、 yml文件数据的读取-controller中@Value加SpEL表达式 、 yml文件中SpEL表达式引用数据 、 yml文件在controller注入Environment整体封装yml数据 、 yml局部数据针对性的封装Java类中 、 </p>
+        <p>yml文件书写格式-数据-对象-层级-数组-对象数组 、 yml文件数据的读取-controller中@Value加SpEL表达式 、 yml文件中SpEL表达式引用数据 、 yml文件在controller注入Environment整体封装yml数据 、 yml局部数据针对性的封装Java类中</p>
 <span id="more"></span>
 <h5 id="接下来，我们聊一下yml文件的书写格式："><a href="#接下来，我们聊一下yml文件的书写格式：" class="headerlink" title="接下来，我们聊一下yml文件的书写格式："></a>接下来，我们聊一下yml文件的书写格式：</h5><p><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/1.png"><br><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/2.png"><br><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/3.png"></p>
 <h5 id="yml重数据而轻格式。XML格式明显。"><a href="#yml重数据而轻格式。XML格式明显。" class="headerlink" title="yml重数据而轻格式。XML格式明显。"></a>yml重数据而轻格式。XML格式明显。</h5><p><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/4.png"><br><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/5.png"><br><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/6.png"><br><img src="/2022/08/26/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%94%EF%BC%89/7.png"></p>
