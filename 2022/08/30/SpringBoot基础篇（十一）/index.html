@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SpringBoot基础篇（十一） | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="服务器抛异常响应给前端的消息处理 、 springmvc提供的异常处理的拦截器配置类 、 前端msg全换为后端动态提供的 、 分页功能的实现 、 删除维护-分页组件小bug的后台补救性措施 、 分页基础上加个条件查询-rest风格与普通get请求的参数传递">
+  <meta name="description" content="SpringBoot与SSMp整合的综合案例(4) 、 服务器抛异常响应给前端的消息处理 、 springmvc提供的异常处理的拦截器配置类 、 前端msg全换为后端动态提供的 、 分页功能的实现 、 删除维护-分页组件小bug的后台补救性措施 、 分页基础上加个条件查询-rest风格与普通get请求的参数传递">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot基础篇（十一）">
 <meta property="og:url" content="http://example.com/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="服务器抛异常响应给前端的消息处理 、 springmvc提供的异常处理的拦截器配置类 、 前端msg全换为后端动态提供的 、 分页功能的实现 、 删除维护-分页组件小bug的后台补救性措施 、 分页基础上加个条件查询-rest风格与普通get请求的参数传递">
+<meta property="og:description" content="SpringBoot与SSMp整合的综合案例(4) 、 服务器抛异常响应给前端的消息处理 、 springmvc提供的异常处理的拦截器配置类 、 前端msg全换为后端动态提供的 、 分页功能的实现 、 删除维护-分页组件小bug的后台补救性措施 、 分页基础上加个条件查询-rest风格与普通get请求的参数传递">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/1.png">
 <meta property="og:image" content="http://example.com/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/2.png">
@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://example.com/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/55.png">
 <meta property="og:image" content="http://example.com/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/56.png">
 <meta property="article:published_time" content="2022-08-30T10:05:57.000Z">
-<meta property="article:modified_time" content="2022-08-30T10:26:15.838Z">
+<meta property="article:modified_time" content="2022-08-31T08:35:53.164Z">
 <meta property="article:author" content="DeYi Kong">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 98
+			总文章数 99
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -291,7 +291,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>服务器抛异常响应给前端的消息处理 、 springmvc提供的异常处理的拦截器配置类 、 前端msg全换为后端动态提供的 、 分页功能的实现 、 删除维护-分页组件小bug的后台补救性措施 、 分页基础上加个条件查询-rest风格与普通get请求的参数传递</p>
+        <p>SpringBoot与SSMp整合的综合案例(4) 、 服务器抛异常响应给前端的消息处理 、 springmvc提供的异常处理的拦截器配置类 、 前端msg全换为后端动态提供的 、 分页功能的实现 、 删除维护-分页组件小bug的后台补救性措施 、 分页基础上加个条件查询-rest风格与普通get请求的参数传递</p>
 <span id="more"></span>
 <h5 id="异常消息处理："><a href="#异常消息处理：" class="headerlink" title="异常消息处理："></a>异常消息处理：</h5><h5 id="如果数据库服务器超时也会产生异常："><a href="#如果数据库服务器超时也会产生异常：" class="headerlink" title="如果数据库服务器超时也会产生异常："></a>如果数据库服务器超时也会产生异常：</h5><h5 id="我们手工抛出一个异常："><a href="#我们手工抛出一个异常：" class="headerlink" title="我们手工抛出一个异常："></a>我们手工抛出一个异常：</h5><h5 id="我们在controller中的添加操作的方法体中加入一个一定会执行的异常："><a href="#我们在controller中的添加操作的方法体中加入一个一定会执行的异常：" class="headerlink" title="我们在controller中的添加操作的方法体中加入一个一定会执行的异常："></a>我们在controller中的添加操作的方法体中加入一个一定会执行的异常：</h5><p><img src="/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/1.png"></p>
 <h5 id="我们启动引导类，到postMan中进行测试："><a href="#我们启动引导类，到postMan中进行测试：" class="headerlink" title="我们启动引导类，到postMan中进行测试："></a>我们启动引导类，到postMan中进行测试：</h5><p><img src="/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/2.png"></p>
@@ -500,6 +500,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/08/31/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SpringBoot基础篇（十二）
+        
+      </div>
+    </a>
   
   
     <a href="/2022/08/30/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
@@ -744,7 +753,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">作品</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -752,7 +761,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">作品</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
