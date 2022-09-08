@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2022/09/08/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%89%E4%B8%89%EF%BC%89/</loc>
+    
+    <lastmod>2022-09-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2022/09/07/SpringBoot%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%89%E4%BA%8C%EF%BC%89/</loc>
     
     <lastmod>2022-09-07</lastmod>
@@ -1084,7 +1093,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1092,63 +1101,63 @@
   
   <url>
     <loc>http://example.com/tags/%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/%E4%BD%9C%E5%93%81/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/JavaSE/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/JavaWeb/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/MarkDown/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/rabbitmq/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/SSM%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/SpringBoot/</loc>
-    <lastmod>2022-09-07</lastmod>
+    <lastmod>2022-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
