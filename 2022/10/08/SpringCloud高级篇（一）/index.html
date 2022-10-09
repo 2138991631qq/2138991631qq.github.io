@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SpringCloud高级篇（一） | 孔德仪的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="微服务保护 、 初识Sentinel 、 雪崩问题的产生-及四种解决方式-超时处理-舱壁模式-熔断降级-流量控制 、 服务保护技术对比(Sentinel与Hystrix) 、 安装Sentinel控制台-登录-修改配置 、 整合微服务和Sentinel-依赖-yml-访问-实时监控">
+  <meta name="description" content="微服务保护 、 初识Sentinel 、 雪崩问题的产生-及四种解决方式-超时处理-舱壁模式-熔断降级-流量控制 、 服务保护技术对比(Sentinel与Hystrix) 、 安装Sentinel控制台-登录-修改配置 、 Sentinel与微服务项目整合-依赖-yml-访问-实时监控">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud高级篇（一）">
 <meta property="og:url" content="http://example.com/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="孔德仪的个人博客">
-<meta property="og:description" content="微服务保护 、 初识Sentinel 、 雪崩问题的产生-及四种解决方式-超时处理-舱壁模式-熔断降级-流量控制 、 服务保护技术对比(Sentinel与Hystrix) 、 安装Sentinel控制台-登录-修改配置 、 整合微服务和Sentinel-依赖-yml-访问-实时监控">
+<meta property="og:description" content="微服务保护 、 初识Sentinel 、 雪崩问题的产生-及四种解决方式-超时处理-舱壁模式-熔断降级-流量控制 、 服务保护技术对比(Sentinel与Hystrix) 、 安装Sentinel控制台-登录-修改配置 、 Sentinel与微服务项目整合-依赖-yml-访问-实时监控">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/img48.png">
 <meta property="og:image" content="http://example.com/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/img78.png">
@@ -87,7 +87,7 @@
 <meta property="og:image" content="http://example.com/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/img3939.png">
 <meta property="og:image" content="http://example.com/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/img3968.png">
 <meta property="article:published_time" content="2022-10-08T04:00:26.000Z">
-<meta property="article:modified_time" content="2022-10-09T02:40:02.564Z">
+<meta property="article:modified_time" content="2022-10-09T02:45:34.030Z">
 <meta property="article:author" content="DeYi Kong">
 <meta property="article:tag" content="SpringCloud高级篇">
 <meta name="twitter:card" content="summary">
@@ -306,7 +306,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>微服务保护 、 初识Sentinel 、 雪崩问题的产生-及四种解决方式-超时处理-舱壁模式-熔断降级-流量控制 、 服务保护技术对比(Sentinel与Hystrix) 、 安装Sentinel控制台-登录-修改配置 、 整合微服务和Sentinel-依赖-yml-访问-实时监控</p>
+        <p>微服务保护 、 初识Sentinel 、 雪崩问题的产生-及四种解决方式-超时处理-舱壁模式-熔断降级-流量控制 、 服务保护技术对比(Sentinel与Hystrix) 、 安装Sentinel控制台-登录-修改配置 、 Sentinel与微服务项目整合-依赖-yml-访问-实时监控</p>
 <span id="more"></span>
 <h5 id="ok，接下来，我们来学习SpringCloud高级篇："><a href="#ok，接下来，我们来学习SpringCloud高级篇：" class="headerlink" title="ok，接下来，我们来学习SpringCloud高级篇："></a>ok，接下来，我们来学习SpringCloud高级篇：</h5><h5 id="高级篇里需要学习下面这5个模块的内容："><a href="#高级篇里需要学习下面这5个模块的内容：" class="headerlink" title="高级篇里需要学习下面这5个模块的内容："></a>高级篇里需要学习下面这5个模块的内容：</h5><p><img src="/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/img48.png"></p>
 <h5 id="所以，接下来，我们先来学习一下：微服务保护的相关知识："><a href="#所以，接下来，我们先来学习一下：微服务保护的相关知识：" class="headerlink" title="所以，接下来，我们先来学习一下：微服务保护的相关知识："></a>所以，接下来，我们先来学习一下：微服务保护的相关知识：</h5><p><img src="/2022/10/08/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/img78.png"></p>
@@ -768,11 +768,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">作品</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">作品</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,7 +800,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringCloud</a>
+                <a href="javascript:void(0)" class="js-tag color4">SpringCloud基础</a>
               </li>
              
               <li class="article-tag-list-item">
