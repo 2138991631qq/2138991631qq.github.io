@@ -85,7 +85,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 215
+			总文章数 220
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -202,6 +202,873 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-RabbitMQ高级特性-消费端限流和生产端的TTL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/">RabbitMQ高级特性-消费端限流和生产端的TTL</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/" class="archive-article-date">
+  	<time datetime="2022-07-02T02:41:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-先看一下消费端限流"><a href="#1-先看一下消费端限流" class="headerlink" title="1.先看一下消费端限流"></a>1.先看一下消费端限流</h3><p>mq的优势有一个削峰填谷，当请求量突增时，这时发送到中间件mq的数据有点点多，而我们的消费端不能将如此多的数据量进行短时间内处理，我们根据消费端的承载量，进行对每秒钟从mq中拉取的信息数据量做一个限制。</p>
+        
+          <a class="article-more-a" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rabbitmq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/02/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E8%B4%B9%E7%AB%AF%E9%99%90%E6%B5%81%E5%92%8C%E7%94%9F%E4%BA%A7%E7%AB%AF%E7%9A%84TTL/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-RabbitMQ高级特性-消息的可靠性传递" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/">RabbitMQ高级特性-消息的可靠性传递</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/" class="archive-article-date">
+  	<time datetime="2022-07-01T02:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>这阶段我们学习rabbitmq的高级特性阶段的第一讲，消息的可靠性传递<br>先看一下我们需要学习的内容：</p>
+        
+          <a class="article-more-a" href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rabbitmq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/01/RabbitMQ%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E9%80%92/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-RabbitMQ的Spring整合与SpringBoot整合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/30/RabbitMQ%E7%9A%84Spring%E6%95%B4%E5%90%88%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/">RabbitMQ的Spring整合与SpringBoot整合</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/06/30/RabbitMQ%E7%9A%84Spring%E6%95%B4%E5%90%88%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/" class="archive-article-date">
+  	<time datetime="2022-06-30T07:25:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="续上，这篇博客我们来用Spring整合与SpringBoot整合RabbitMQ"><a href="#续上，这篇博客我们来用Spring整合与SpringBoot整合RabbitMQ" class="headerlink" title="续上，这篇博客我们来用Spring整合与SpringBoot整合RabbitMQ"></a>续上，这篇博客我们来用Spring整合与SpringBoot整合RabbitMQ</h3><p>原始版的rabbitmq的producer和consumer写起来都比较麻烦一些，这次我们来用Spring进行整合，spring整合的话其实也是比较麻烦，因为要写很多配置文件的xml的各种配置。进阶我们使用SpringBoot来整合RabbitMQ，springBoot整合是真心简便。</p>
+<h3 id="1-Spring整合RabbitMQ"><a href="#1-Spring整合RabbitMQ" class="headerlink" title="1.Spring整合RabbitMQ."></a>1.Spring整合RabbitMQ.</h3><p>首先，我们看一下步骤：</p>
+        
+          <a class="article-more-a" href="/2022/06/30/RabbitMQ%E7%9A%84Spring%E6%95%B4%E5%90%88%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rabbitmq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/30/RabbitMQ%E7%9A%84Spring%E6%95%B4%E5%90%88%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-CentOS7安装RabbitMQ-无坑版" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/29/CentOS7%E5%AE%89%E8%A3%85RabbitMQ-%E6%97%A0%E5%9D%91%E7%89%88/">CentOS7安装RabbitMQ(无坑版)</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/06/29/CentOS7%E5%AE%89%E8%A3%85RabbitMQ-%E6%97%A0%E5%9D%91%E7%89%88/" class="archive-article-date">
+  	<time datetime="2022-06-29T01:22:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HELLO，这一季给大家出一期CENTOS7系统安装RABBITMQ的无坑版："><a href="#HELLO，这一季给大家出一期CENTOS7系统安装RABBITMQ的无坑版：" class="headerlink" title="HELLO，这一季给大家出一期CENTOS7系统安装RABBITMQ的无坑版："></a>HELLO，这一季给大家出一期CENTOS7系统安装RABBITMQ的无坑版：</h3><h4 id="第一步：安装VMWARE虚拟机："><a href="#第一步：安装VMWARE虚拟机：" class="headerlink" title="第一步：安装VMWARE虚拟机："></a>第一步：安装VMWARE虚拟机：</h4><p>这一步比较简单，就是从网上找到VMWARE的安装包进行点击下一步下一步就可以啦</p>
+        
+          <a class="article-more-a" href="/2022/06/29/CentOS7%E5%AE%89%E8%A3%85RabbitMQ-%E6%97%A0%E5%9D%91%E7%89%88/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">安装笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/29/CentOS7%E5%AE%89%E8%A3%85RabbitMQ-%E6%97%A0%E5%9D%91%E7%89%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-RabbitMQ学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/27/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">RabbitMQ学习笔记</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/06/27/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2022-06-27T09:00:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RabbitMQ的入门级别的学习笔记"><a href="#RabbitMQ的入门级别的学习笔记" class="headerlink" title="RabbitMQ的入门级别的学习笔记"></a>RabbitMQ的入门级别的学习笔记</h3><p>这篇博客是我在初步入门学习了rabbitmq之后整理的，这个博客涉及mq的认识，rabbitmq的认识了解，idea手动写几个测试文件来测试rabbitmq的使用，对rabbitmq有一个初步的认识。</p>
+<h3 id="1-MQ的基本概念："><a href="#1-MQ的基本概念：" class="headerlink" title="1.MQ的基本概念："></a>1.MQ的基本概念：</h3><p>Message Queue(消息队列)，消息传输过程中保存消息的容器，多用于关于分布式系统之间进行的通信。</p>
+        
+          <a class="article-more-a" href="/2022/06/27/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rabbitmq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/27/RabbitMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
   
     <article id="post-GUI和DAO和JDBC实现药店管理系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1186,7 +2053,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">作品</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,7 +2061,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color3">作品</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1202,11 +2069,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java技术博客栏</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java技术博客栏索引</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Java基础目录索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java技术博客栏</a>
               </li>
              
               <li class="article-tag-list-item">

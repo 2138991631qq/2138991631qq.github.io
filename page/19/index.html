@@ -85,7 +85,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 215
+			总文章数 220
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -202,6 +202,871 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-JAVAWEB基础篇（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/24/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89/">JAVAWEB基础篇（四）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/24/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-07-24T03:31:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>maven主要功能 、 maven安装配置与仓库 、 maven常用命令 、 IDEA配置maven 、 IDEA创建maven与导入maven 、 Maven-Helper插件 、 maven远程仓库url网址 、 maven依赖管理 、 scope依赖范围</p>
+        
+          <a class="article-more-a" href="/2022/07/24/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/24/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%9B%9B%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-JAVAWEB基础篇（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/23/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89/">JAVAWEB基础篇（三）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/23/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-07-23T10:49:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JDBC及其使用 、DriverManager 、 Connection 、 Statement 、 ResultSet 、 SQL注入 、 PrepareStatement 、 pojo持久层封装类 、 数据库连接池Druid及使用 、 Druid的增删改查</p>
+        
+          <a class="article-more-a" href="/2022/07/23/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/23/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%89%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-JAVAWEB基础篇（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/22/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89/">JAVAWEB基础篇（二）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/22/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-07-22T04:39:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据库约束 、 外键约束 、 数据库设计与软件研发步骤 、 表关系及实现 、 多表查询-连接查询-子查询 、 多表查询的练习 、 事务处理</p>
+        
+          <a class="article-more-a" href="/2022/07/22/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/22/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-JAVAWEB基础篇（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/20/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/">JAVAWEB基础篇（一）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/20/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-07-20T07:26:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySql的下载安装配置 、 SQL语言 、 DDL语句 、 DML语句 、 数据类型 、 Navicat 、 增删改查 、 distinct 、 where条件 、 order by 、 聚合函数 、 group by 、 limit分页</p>
+        
+          <a class="article-more-a" href="/2022/07/20/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/20/JAVAWEB%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-GitHub仓库的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/19/GitHub%E4%BB%93%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">GitHub仓库的基本使用</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/07/19/GitHub%E4%BB%93%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2022-07-19T06:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="GitHub的基本使用"><a href="#GitHub的基本使用" class="headerlink" title="GitHub的基本使用"></a>GitHub的基本使用</h3><p>创建仓库，克隆到本地仓库，提交到远程仓库，删除仓库</p>
+        
+          <a class="article-more-a" href="/2022/07/19/GitHub%E4%BB%93%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/19/GitHub%E4%BB%93%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
   
     <article id="post-JAVASE基础篇（1-18全）目录索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1068,871 +1933,6 @@ var _hmt = _hmt || [];
 </section>
  -->
   
-    <article id="post-JAVASE基础篇（十四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/14/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/">JAVASE基础篇（十四）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/07/14/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-07-14T01:26:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>IO 、 字节输入输出流 、 字节输入输出的数组优化 、 文件复制案例图片复制 、 中文乱码 、 字符输入输出流 、 IO流中的try-catch</p>
-        
-          <a class="article-more-a" href="/2022/07/14/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/14/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-JAVASE基础篇（十三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">JAVASE基础篇（十三）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-07-13T03:18:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>File类构造方法 、 File类的get获取的方法 、 file的判断方法-存在否?-文件或文件夹? 、file创建问价或文件夹及删除 、 File类的遍历子文件及子文件夹 、 递归 、 递归注意事项 、 递归打印多级目录 、 文件搜索功能的传统实现与FileFilter过滤器实现 </p>
-        
-          <a class="article-more-a" href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-JAVASE基础篇（十二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/">JAVASE基础篇（十二）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-07-13T02:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>lambda表达式 、 lambda对仅含一个抽象方法的接口匿名内部类优化 、 Arrays.sort()的comparator匿名内部类的lambda表达式写法 、 有参与无参接口抽象方法的lambda写法 、 lambda的进一步简化 、 lambda的使用前提</p>
-        
-          <a class="article-more-a" href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/13/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-JAVASE基础篇（十一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/">JAVASE基础篇（十一）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-07-11T11:17:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>多线程 、 继承Thread类 、 实现Runnable接口 、 线程安全问题 、 同步代码块 、 同步方法 、 lock锁 、 线程通信 、 wait与notify 、 包子铺吃货线程通信 、 线程池</p>
-        
-          <a class="article-more-a" href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-JAVASE基础篇（十）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/">JAVASE基础篇（十）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-07-11T09:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>异常 、 throw 、 throws 、 try-catch-finally 、 多异常多次捕获 、 父类方法throw异常子类重写的规则 、 自定义异常 </p>
-        
-          <a class="article-more-a" href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaSE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/11/JAVASE%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/18/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/20/">Next &amp;raquo;</a>
@@ -2048,7 +2048,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">作品</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2056,7 +2056,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color3">作品</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2064,11 +2064,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java技术博客栏</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java技术博客栏索引</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Java基础目录索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java技术博客栏</a>
               </li>
              
               <li class="article-tag-list-item">

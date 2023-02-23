@@ -85,7 +85,7 @@ var _hmt = _hmt || [];
 			</ul>
 		</nav>
 		<nav>
-			总文章数 215
+			总文章数 220
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -202,6 +202,871 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-SpringCloud高级篇（二十）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89/">SpringCloud高级篇（二十）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-11-02T02:51:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RabbitMQ高级特性 、 消息可靠性 、 消息持久化-交换机和队列持久化(控制台和代码)-持久化消息 、 SpringAMQP消费者确认机制-三种模式(推荐auto)-auto模式的失败重试机制(retry机制)-失败消息处理策略(推荐republish重发机制)-测试</p>
+        
+          <a class="article-more-a" href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E4%BA%8C%E5%8D%81%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-SpringCloud高级篇（十九）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">SpringCloud高级篇（十九）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-11-02T02:38:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RabbitMQ高级特性 、 MQ的四个常见问题-与解决方式 、 消息的可靠性问题与三个解决措施 、 可靠性-SpringAMQP生产者确认机制-选择correlated模式-编写回调函数ReturnCallBack(交换机到队列)-写ConfirmCallBack(生产者到交换机)-测试</p>
+        
+          <a class="article-more-a" href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/02/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-SpringCloud高级篇（十八）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/">SpringCloud高级篇（十八）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-10-30T11:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>多级缓存 、 缓存同步-数据同步策略-基于Canal的异步通知 、 初识Canal-Canal原理 、 监听Canal-Canal的客户端-实现EntryHandler接口-编写数据同步逻辑-测试 、 多级缓存总结</p>
+        
+          <a class="article-more-a" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-SpringCloud高级篇（十七）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/">SpringCloud高级篇（十七）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-10-30T11:42:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>多级缓存 、 添加Redis缓存需求-冷启动与缓存预热-安装Redis-与微服务建立连接-Redis预热逻辑 、 修改OpenRsety操作Redis-api-封装逻辑到common.lua-案例 、 nginx本地缓存-shared_dirc-案例</p>
+        
+          <a class="article-more-a" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
+  
+    <article id="post-SpringCloud高级篇（十六）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/">SpringCloud高级篇（十六）</a>
+    </h1>
+  
+
+
+
+
+
+
+
+
+        
+        <a href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2022-10-30T11:37:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>多级缓存 、 OpenResty-初识-安装-配置-运行-快速入门(处理请求，返回假数据)-nginx.conf-item.lua 、 OpenResty获取请求参数-api-案例 、 OpenResty查询Tomcat-http的api-封装查询函数-json结果处理 、 Tomcat集群-负载均衡算法hash$request_uri</p>
+        
+          <a class="article-more-a" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/#more">more >></a>
+        
+      
+
+      
+
+
+
+          <!- 百度自动推送方式提交 -->
+      
+        <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+        </script>
+      
+      <!- 百度自动推送方式提交结束 -->
+
+
+      <!-- 增加版权声明 -->
+
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+
+      <!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+ 
+
+<!-- 
+  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+ -->
+
+<!-- 
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
+            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+</section>
+ -->
   
     <article id="post-Canal安装指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1057,871 +1922,6 @@ var _hmt = _hmt || [];
 </section>
  -->
   
-    <article id="post-SpringCloud高级篇（十三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/23/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">SpringCloud高级篇（十三）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/10/23/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-10-23T11:12:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分布式缓存 、 海量数据与高并发写的解决-Redis的分片集群-结构-动手搭建Redis的分片集群-启动 、 散列插槽-原理-有效部分 、 分片集群伸缩-添加与删除一个节点-插槽转移 、 分片集群故障转移-手动故障转移</p>
-        
-          <a class="article-more-a" href="/2022/10/23/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/23/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-SpringCloud高级篇（十二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/22/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/">SpringCloud高级篇（十二）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/10/22/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-10-22T11:45:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分布式缓存 、 Redis的哨兵机制-监控-故障转移-通知 、 主观下线-客观下线 、 动手搭建Redis哨兵sentinel集群-运行-测试 、 RedisTemplate的哨兵模式-引入工程-引入pom依赖-配置sentinel集群地址-配置主从读写分离-测试-日志</p>
-        
-          <a class="article-more-a" href="/2022/10/22/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/22/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-SpringCloud高级篇（十一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/20/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/">SpringCloud高级篇（十一）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/10/20/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-10-20T10:09:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分布式缓存 、 搭建Redis主从集群-原因-模型-动手搭建-配置文件-启动-开启主从关系-测试 、 Redis主从同步原理-全量同步-replid与offset-增量同步-repl_bklog的本质 、 优化Redis主从集群</p>
-        
-          <a class="article-more-a" href="/2022/10/20/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/20/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-SpringCloud高级篇（十）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/19/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/">SpringCloud高级篇（十）</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/10/19/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2022-10-19T08:12:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分布式缓存 、 单节点redis的问题和解决思路 、 Redis持久化 、 RDB-概念-save与bgsave-RDB触发机制-其他配置-底层原理-fork-copyOnWrite-极端情况内存翻倍-RDB的存在问题 、 AOF-原理-配置-刷盘策略-bgrewriteaof-触发AOF文件重写 、 RDB和AOF的对比</p>
-        
-          <a class="article-more-a" href="/2022/10/19/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringCloud高级篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/19/SpringCloud%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%88%E5%8D%81%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
-    <article id="post-Redis安装和集群讲义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/18/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E8%AE%B2%E4%B9%89/">Redis安装和集群讲义</a>
-    </h1>
-  
-
-
-
-
-
-
-
-
-        
-        <a href="/2022/10/18/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E8%AE%B2%E4%B9%89/" class="archive-article-date">
-  	<time datetime="2022-10-18T07:03:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>HELLO，这一季给大家出一期Redis安装和集群讲义：</p>
-        
-          <a class="article-more-a" href="/2022/10/18/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E8%AE%B2%E4%B9%89/#more">more >></a>
-        
-      
-
-      
-
-
-
-          <!- 百度自动推送方式提交 -->
-      
-        <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-        </script>
-      
-      <!- 百度自动推送方式提交结束 -->
-
-
-      <!-- 增加版权声明 -->
-
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-
-      <!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">安装笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/18/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E9%9B%86%E7%BE%A4%E8%AE%B2%E4%B9%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
- 
-
-<!-- 
-  <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-  </section>
- -->
-
-<!-- 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "lADFnwSjDQwGnhGbWwMiB94g-gzGzoHsz",
-            app_key: "8jUaYhqslWhgUVr2WYchpWkh",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-</section>
- -->
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
@@ -2037,7 +2037,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">作品</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2045,7 +2045,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color3">作品</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2053,11 +2053,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java技术博客栏</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java技术博客栏索引</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Java基础目录索引</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java技术博客栏</a>
               </li>
              
               <li class="article-tag-list-item">
