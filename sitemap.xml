@@ -2070,14 +2070,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/JavaSE/</loc>
+    <loc>http://example.com/tags/%E4%BD%9C%E5%93%81/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E4%BD%9C%E5%93%81/</loc>
+    <loc>http://example.com/tags/JavaSE/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2105,14 +2105,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Java%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%A0%8F%E7%B4%A2%E5%BC%95/</loc>
+    <loc>http://example.com/tags/Java%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%A0%8F/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Java%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%A0%8F/</loc>
+    <loc>http://example.com/tags/Java%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%A0%8F%E7%B4%A2%E5%BC%95/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2126,14 +2126,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://example.com/tags/MarkDown/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/MarkDown/</loc>
+    <loc>http://example.com/tags/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
